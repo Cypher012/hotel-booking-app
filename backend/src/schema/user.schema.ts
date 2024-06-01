@@ -1,6 +1,6 @@
 import { object, string, TypeOf } from "zod";
 
-const userSchema = object({
+const CreateUserSchema = object({
   body: object({
     firstName: string().min(1, "First name cannot be empty"),
     lastName: string().min(1, "Last name cannot be empty"),
@@ -11,4 +11,4 @@ const userSchema = object({
   }),
 });
 
-export type userSchemaInput = TypeOf<typeof userSchema>;
+export type CreateUserSchemaInput = TypeOf<typeof CreateUserSchema>["body"];
