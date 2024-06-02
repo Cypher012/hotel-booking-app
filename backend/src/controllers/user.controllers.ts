@@ -22,7 +22,9 @@ export const createUserHandler = async (
       });
     }
 
-    const user = await createUser(body);
+    const { password, ...resData } = body;
+
+    const user = await createUser(resData);
 
     const token = signJwt({ userId: user.id }, "accessTokenKey");
 
